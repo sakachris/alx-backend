@@ -13,16 +13,16 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         '''
-        assign to the dictionary self.cache_data the item value for the key key
+        assign to the dictionary self.cache_data the item value for the key
         '''
         if key is not None and item is not None:
             if len(self.cache_data) >= self.MAX_ITEMS:
-                # If the cache is full, discard the last item (LIFO)
+                # discarding the last item if cache is full
                 discarded_key = list(self.cache_data.keys())[-1]
                 del self.cache_data[discarded_key]
                 print("DISCARD:", discarded_key)
 
-            # Add the new item
+            # Adding new item
             self.cache_data[key] = item
 
     def get(self, key):
