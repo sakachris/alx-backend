@@ -1,4 +1,5 @@
-# 5-app.py
+#!/usr/bin/env python3
+''' 5-app.py '''
 
 from flask import Flask, render_template, g, request
 from flask_babel import Babel, _
@@ -6,7 +7,6 @@ from flask_babel import Babel, _
 app: Flask = Flask(__name__)
 babel: Babel = Babel(app)
 
-# Mock user table
 users: dict = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
