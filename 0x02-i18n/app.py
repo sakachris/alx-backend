@@ -2,6 +2,7 @@
 ''' 7-app.py '''
 
 import pytz
+import datetime
 from flask import Flask, render_template, g, request
 from flask_babel import Babel, format_datetime, _
 
@@ -78,9 +79,8 @@ def index() -> str:
         welcome_message: str = _("You are not logged in.")
 
     current_time = datetime.datetime.now(pytz.timezone(get_timezone()))
-    formatted_time = format_datetime(
-            current_time, format='medium', locale=get_locale()
-    )
+    locale = get_locale()
+    formatted_time = format_datetime(current_time, format='medium')
     return render_template(
             'index.html',
             welcome_message=welcome_message,
